@@ -43,6 +43,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	system/bluetooth/data/main.le.conf:system/etc/bluetooth/main.conf
 
+# APN configuration files
+PRODUCT_COPY_FILES += \
+	device/samsung/epic4gtouch/configs/apns-conf.xml:system/etc/apns-conf.xml
+
 # Wifi
 PRODUCT_COPY_FILES += \
 	device/samsung/epic4gtouch/configs/nvram_net.txt:system/etc/nvram_net.txt \
@@ -77,6 +81,11 @@ PRODUCT_PACKAGES += \
         libhwconverter \
         libs5pjpeg \
         libfimg
+
+#gooo
+PRODUCT_PACKAGES += \
+    GooManager \
+    Apollo
 
 # Charger
 PRODUCT_PACKAGES += \

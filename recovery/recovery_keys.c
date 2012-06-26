@@ -14,7 +14,7 @@ int device_toggle_display(volatile char* key_pressed, int key_code) {
         return 0;
         //return get_allow_toggle_display() && (key_code == KEY_HOME || key_code == KEY_MENU || key_code == KEY_END);
     }
-    return get_allow_toggle_display() && (key_code == KEY_HOMEPAGE || key_code == KEY_MENU || key_code == KEY_POWER || key_code == KEY_END);
+    return get_allow_toggle_display() && (key_code == 0x102 || key_code == 0x139 || key_code == KEY_POWER || key_code == KEY_END);
 }
 
 int device_handle_key(int key_code, int visible) {
@@ -22,28 +22,18 @@ int device_handle_key(int key_code, int visible) {
         switch (key_code) {
             case KEY_CAPSLOCK:
             case KEY_DOWN:
-            case KEY_VOLUMEDOWN:
+            case 0x114:
                 return HIGHLIGHT_DOWN;
-            case KEY_MENU:
+            case 0x139:
                 return NO_ACTION;
             case KEY_LEFTSHIFT:
             case KEY_UP:
-            case KEY_VOLUMEUP:
+            case 0x115:
                 return HIGHLIGHT_UP;
-            case KEY_HOMEPAGE:
-                if (ui_get_showing_back_button()) {
-                    return SELECT_ITEM;
-                }
-                if (!get_allow_toggle_display())
-                    return GO_BACK;
-                break;
-            case KEY_POWER:
-                if (ui_get_showing_back_button()) {
-                    return SELECT_ITEM;
-                }
-                if (!get_allow_toggle_display())
-                    return GO_BACK;
-                break;
+            case 0x102:
+                return SELECT_ITEM;
+            case 0x158:
+                 return GO_BACK;
             case KEY_LEFTBRACE:
             case KEY_ENTER:
             case BTN_MOUSE:
@@ -53,7 +43,7 @@ int device_handle_key(int key_code, int visible) {
             case KEY_END:
             case KEY_BACKSPACE:
             case KEY_SEARCH:
-            case KEY_BACK:
+            case 0x116:
                 return GO_BACK;
         }
     }
