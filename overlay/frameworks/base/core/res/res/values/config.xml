@@ -211,7 +211,7 @@
     <bool name="config_intrusiveNotificationLed">true</bool>
 
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">true</bool>
+   <!-- <bool name="config_intrusiveBatteryLed">true</bool> -->
 
 <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
@@ -295,7 +295,7 @@
     <!-- LUN file to be used by legacy USB manager.
          The existence of this file will be used to determine in the
          legacy USB manager should be started. -->
-    <string name="config_legacyUmsLunFile">/sys/class/android_usb/f_mass_storage/lun0/file</string> 
+  <!--  <string name="config_legacyUmsLunFile">/sys/class/android_usb/f_mass_storage/lun0/file</string> -->
 
     <!-- Workaround for devices with broken keyboards -->	
     <bool name="config_forceDisableHardwareKeyboard">true</bool>
