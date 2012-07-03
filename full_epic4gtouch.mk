@@ -31,3 +31,23 @@ PRODUCT_DEVICE := epic4gtouch
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
 PRODUCT_MODEL := SPH-D710 
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dexopt-flags=m=y,v=n,o=v,u=n \
+    dalvik.vm.execution-mode=int:jit \
+    ro.ril.disable.power.collapse=0 \
+    wifi.supplicant_scan_interval=180 \
+    debug.performance.tuning=1 \
+    video.accelerate.hw=1 \
+    windowsmgr.max_events_per_sec=300 \
+    persist.adb.notify=0 \
+    ro.kernel.android.checkjni=0 \
+    ro.HOME_APP_ADJ=1 \
+    debug.sf.hw=1 \
+    dalvik.vm.heapsize=64m \
+    persist.sys.ui.hw=1 \
+    ro.max.fling_velocity=12000 \
+    ro.min.fling_velocity=8000 \
+    ro.config.nocheckin=1 \
+    ro.telephony.call_ring.delay=0 \
+    persist.sys.purgeable_assets=1
