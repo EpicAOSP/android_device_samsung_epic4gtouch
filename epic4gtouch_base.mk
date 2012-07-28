@@ -133,8 +133,6 @@ PRODUCT_COPY_FILES += \
 	device/samsung/epic4gtouch/configs/ip-up:system/etc/ppp/ip-up \
 	device/samsung/epic4gtouch/configs/pppd_runner:system/bin/pppd_runner
 
-FRAMEWORKS_BASE_SUBDIRS += ../../$(LOCAL_PATH)/epicril/
-
 # Filesystem management tools
 PRODUCT_PACKAGES += \
 	static_busybox \
