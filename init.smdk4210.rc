@@ -50,6 +50,11 @@ on fs
     chmod 0770 /data/misc/wifi
 
 on post-fs-data
+#load modules
+    insmod /system/lib/modules/cyasswitch.ko
+    insmod /system/lib/modules/j4fs.ko
+    insmod /system/lib/modules/scsi_wait_scan.ko
+
 # bind external sd
     mount -o bind /mnt/emmc /mnt/sdcard/external_sd
 
@@ -406,6 +411,11 @@ service TvoutService_C /system/bin/bintvoutservice
     class main
     user system
     group graphics
+
+service initd /system/xbin/busybox run-parts /system/etc/init.d
+	user root
+	oneshot
+	disabled
 
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/bugmailer.sh -v

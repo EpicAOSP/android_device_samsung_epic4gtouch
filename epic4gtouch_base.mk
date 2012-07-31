@@ -78,6 +78,7 @@ PRODUCT_PACKAGES := \
 # HAL 
 PRODUCT_PACKAGES += \
         lights.SPH-D710 \
+		sensors.exynos4 \
         libhwconverter \
         libs5pjpeg \
         libfimg
@@ -121,8 +122,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	net.cdma.pppd.user=user[SPACE]SprintNextel \
 	net.cdma.datalinkinterface=/dev/ttyCDMA0 \
 	net.interfaces.defaultroute=cdma \
-	ro.telephony.ril_class=EpicRIL \
-	ro.ril.samsung_cdma=true \
+	ro.telephony.ril_class=SamsungCDMAv6RIL \
 	ro.carrier=Sprint \
 	ro.wimax.interface=uwbr0 \
 	ro.cdma.ppp.interface=ppp0 \
@@ -132,8 +132,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
 	device/samsung/epic4gtouch/configs/ip-up:system/etc/ppp/ip-up \
 	device/samsung/epic4gtouch/configs/pppd_runner:system/bin/pppd_runner
-
-FRAMEWORKS_BASE_SUBDIRS += ../../$(LOCAL_PATH)/epicril/
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -195,7 +193,7 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 # Vold properties and default USB interface
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.vold.switchablepair=/mnt/emmc,/mnt/sdcard \
-        persist.sys.usb.config=mass_storage
+    persist.sys.usb.config=mass_storage
 
 # Include exynos4 platform specific parts
 TARGET_HAL_PATH := hardware/samsung/exynos4/hal
